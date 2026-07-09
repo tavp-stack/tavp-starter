@@ -1,17 +1,23 @@
-{
-    "name": "tavp/starter",
-    "description": "TAVP Stack starter template for quick project bootstrapping",
-    "type": "project",
-    "license": "MIT",
-    "require": {
-        "php": ">=8.3",
-        "phalcon/cphalcon": "^5.16",
-        "vlucas/phpdotenv": "^5.6"
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "bin": ["bin/tavp"]
+﻿{
+    "name":  "tavp/starter",
+    "description":  "TAVP Stack starter template for quick project bootstrapping",
+    "type":  "project",
+    "license":  "MIT",
+    "require":  {
+                    "php":  "\u003e=8.3",
+                    "phalcon/cphalcon":  "^5.16",
+                    "vlucas/phpdotenv":  "^5.6"
+                },
+    "autoload":  {
+                     "psr-4":  {
+                                   "App\\":  "app/"
+                               }
+                 },
+    "bin":  [
+                "bin/tavp"
+            ],
+    "support":  {
+                    "issues":  "https://github.com/tavp-stack/tavp-starter/issues",
+                    "source":  "https://github.com/tavp-stack/tavp-starter"
+                }
 }
