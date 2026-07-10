@@ -2,36 +2,28 @@
 
 declare(strict_types=1);
 
-use App\Controllers\PostController;
-
-/**
- * Application routes.
- *
- * Convention: Resource routes for CRUD, closures for simple pages.
- * $router is provided by the host application when this file is required.
- */
+use App\Controllers\DashboardController;
+use App\Controllers\VehicleController;
+use App\Controllers\FuelController;
 
 /** @var \Tavp\Core\Routing\Router $router */
 if (!isset($router)) {
     return;
 }
 
-// --- Blog posts (resource routes) ---
-$router->get('/posts', [PostController::class, 'index']);
-$router->get('/posts/create', [PostController::class, 'create']);
-$router->post('/posts', [PostController::class, 'store']);
-$router->get('/posts/{slug}', [PostController::class, 'show']);
+// Dashboard
+$router->get('/', [DashboardController::class, 'index']);
 
-// --- Static pages ---
-$router->get('/about', function () {
-    return view('pages.about');
-});
+// Vehicles
+$router->get('/vehicles', [VehicleController::class, 'index']);
+$router->get('/vehicles/create', [VehicleController::class, 'create']);
+$router->post('/vehicles', [VehicleController::class, 'store']);
+$router->get('/vehicles/{id}/edit', [VehicleController::class, 'edit']);
+$router->post('/vehicles/{id}', [VehicleController::class, 'update']);
+$router->post('/vehicles/{id}/delete', [VehicleController::class, 'destroy']);
 
-$router->get('/contact', function () {
-    return view('pages.contact');
-});
-
-// --- Home ---
-$router->get('/', function () {
-    return view('home');
-});
+// Fuel entries
+$router->get('/vehicles/{vehicleId}/fuel', [FuelController::class, 'index']);
+$router->get('/vehicles/{vehicleId}/fuel/create', [FuelController::class, 'create']);
+$router->post('/vehicles/{vehicleId}/fuel', [FuelController::class, 'store']);
+$router->post('/vehicles/{vehicleId}/fuel/{entryId}/delete', [FuelController::class, 'destroy']);
